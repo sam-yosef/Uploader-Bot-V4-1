@@ -236,8 +236,8 @@ async def youtube_dl_call_back(bot, update):
                 video=the_real_download_location,
                 duration=duration,
                 width=width,i  
+                height=320
                 supports_streaming=True,
-                # reply_markup=reply_markup,
                 thumb=thumb_image_path,
                 reply_to_message_id=update.reply_to_message.message_id,
                 progress=progress_for_pyrogram,
@@ -269,7 +269,7 @@ async def youtube_dl_call_back(bot, update):
                 
                 await bot.send_video_note(
                     chat_id=update.message.chat.id,
-                    video_note=download_directory,
+                    video_note=the_real_download_location,
                     duration=duration,
                     length=width,
                     thumb=thumb_image_path,
