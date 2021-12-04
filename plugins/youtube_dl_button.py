@@ -231,12 +231,11 @@ async def youtube_dl_call_back(bot, update):
                 # https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#create-thumbnails
             # try to upload file
             c_time = time.time()
-            await bot.send_video(
+            await bot.send_audio(
                 chat_id=update.chat.id,
                 video=the_real_download_location,
                 duration=duration,
-                width=width,i
-                height=height,
+                width=width,i  
                 supports_streaming=True,
                 # reply_markup=reply_markup,
                 thumb=thumb_image_path,
@@ -252,7 +251,7 @@ async def youtube_dl_call_back(bot, update):
                 await update.message.reply_to_message.reply_chat_action("upload_document")
                 await bot.send_document(
                     chat_id=update.message.chat.id,
-                    document=download_directory,
+                    document=the_real_download_location,
                     thumb=thumb_image_path,
                     caption=description,
                     parse_mode="HTML",
