@@ -12,4 +12,3 @@ feedparser
 requests
 tgcrypto
 yt-dlp
-metadata
