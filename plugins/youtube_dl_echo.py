@@ -14,7 +14,7 @@ import random
 import ffmpeg
 import asyncio
 import requests
-
+import metadata as width, height, metadata
 if bool(os.environ.get("WEBHOOK", False)):
     from sample_config import Config
 else:
