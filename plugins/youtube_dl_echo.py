@@ -14,7 +14,7 @@ import random
 import ffmpeg
 import asyncio
 import requests
-import metadata as width, height, metadata
+
 if bool(os.environ.get("WEBHOOK", False)):
     from sample_config import Config
 else:
@@ -28,7 +28,7 @@ from pyrogram.errors import UserNotParticipant, UserBannedInChannel
 from database.database import *
 from helper_funcs.display_progress import humanbytes
 from helper_funcs.help_uploadbot import DownLoadFile
-
+from hachoir.metadata import extractMetadata as width, height
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from datetime import datetime
