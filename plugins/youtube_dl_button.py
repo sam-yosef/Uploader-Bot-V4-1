@@ -203,14 +203,10 @@ async def youtube_dl_call_back(bot, update):
             width = 0
             height = 0
             duration = 0
-            if tg_send_type != "file":
-                metadata = extractMetadata(createParser(download_directory))
-                if metadata is not None:
-                    if metadata.has("duration"):
-                        duration = metadata.get('duration').seconds
+            if tg_send_type != "file":    
                 if not height:
-        metadata = extractMetadata(createParser(thumb_image_path))
-        if metadata.has("height"):
+            metadata = extractMetadata(createParser(thumb_image_path))
+            if metadata.has("height"):
             height = metadata.get("height")
         else:
             height = 0
