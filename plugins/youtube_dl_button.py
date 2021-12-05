@@ -208,27 +208,17 @@ async def youtube_dl_call_back(bot, update):
                 if metadata is not None:
                     if metadata.has("duration"):
                         duration = metadata.get('duration').seconds
-
-            if os.path.exists(thumb_image_path):
-                width = 0
-                height = 0
-                metadata = extractMetadata(createParser(thumb_image_path))
-                if metadata.has("width"):
-                    width = metadata.get("width")
-                if metadata.has("height"):
-                    height = metadata.get("height")
-                if tg_send_type == "vm":
-                    height = width
-                Image.open(thumb_image_path).convert(
-                    "RGB").save(thumb_image_path)
-                img = Image.open(thumb_image_path)
-                if tg_send_type == "file":
-                    img.resize((320, height))
-                else:
-                    img.resize((90, height))
-                img.save(thumb_image_path, "JPEG")
-            else:
-                thumb_image_path = None
+                if not height:
+        metadata = extractMetadata(createParser(thumb_image_path))
+        if metadata.has("height"):
+            height = metadata.get("height")
+        else:
+            height = 0
+    Image.open(thumb_path).convert("RGB").save(thumb_image_path)
+    img = Image.open(thumb_image_path)
+    img.resize((320, height))
+    img.save(thumb_image_path, "JPEG")
+    return thumb_image_path
 
             start_time = time.time()
             if tg_send_type == "audio":
