@@ -25,7 +25,6 @@ from helper_funcs.help_Nekmo_ffmpeg import generate_screen_shots
 from helper_funcs.display_progress import progress_for_pyrogram, humanbytes
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from PIL import Image
-from hachoir.metadata import extractMetadata as height, width
 
 async def youtube_dl_call_back(bot, update):
     cb_data = update.data
