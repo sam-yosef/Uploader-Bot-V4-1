@@ -199,22 +199,6 @@ async def youtube_dl_call_back(bot, update):
                 await bot.edit_message_text(text=Translation.UPLOAD_START, chat_id=update.message.chat.id, message_id=update.message.message_id)
             except:
                 pass
-            # get the correct width, height, and duration for videos greater than 10MB
-            width = 0
-            height = 0
-            duration = 0
-            if tg_send_type != "file":    
-                if not height:
-            metadata = extractMetadata(createParser(thumb_image_path))
-            if metadata.has("height"):
-            height = metadata.get("height")
-        else:
-            height = 0
-    Image.open(thumb_path).convert("RGB").save(thumb_image_path)
-    img = Image.open(thumb_image_path)
-    img.resize((320, height))
-    img.save(thumb_image_path, "JPEG")
-    return thumb_image_path
 
             start_time = time.time()
             if tg_send_type == "audio":
